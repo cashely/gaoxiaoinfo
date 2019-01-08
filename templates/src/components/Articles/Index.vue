@@ -1,6 +1,6 @@
 <template>
   <div class="sub-container">
-    <header class="search-bar">
+    <header class="header-bar">
       <el-form inline size="small">
         <el-form-item label="关键字">
           <el-input placeholder="湖北、湖南..."></el-input>
@@ -40,13 +40,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-.search-bar {
-  padding: 10px;
-  text-align: left;
-}
-.sub-container-box {
-  padding: 0 10px;
-}
-</style>

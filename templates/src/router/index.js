@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import Index from '@/components/Index'
 import ArticleIndex from '@/components/Articles/Index'
-
+import ArticleDetail from '@/components/Articles/Detail'
 Vue.use(Router)
 
 export default new Router({
@@ -19,6 +19,9 @@ export default new Router({
       children: [{
         path: 'articles',
         component: ArticleIndex
+      },{
+        path: 'articles/:id',
+        component: ArticleDetail
       }]
     }
   ]
