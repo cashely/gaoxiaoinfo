@@ -13,4 +13,5 @@ module.exports = (app) => {
   app
   .get('/articles', routes.article.articles)
   .get('/articles/page', routes.article.pageInfo)
+  .get('/articles/:id', routes.article.detail)
 }

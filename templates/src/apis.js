@@ -17,3 +17,7 @@ const $ = {
 export function getArtilesData(options) {
   return $.get('/articles')
 }
+
+export function getArtilesDetail(pid) {
+  return $.get(`/articles/${pid}`)
+}

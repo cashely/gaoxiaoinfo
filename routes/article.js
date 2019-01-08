@@ -42,6 +42,16 @@ module.exports = {
     models.page.count(conditions).then(num => {
       response(200, num, res)
     })
+  },
+  detail: (req, res, next) => {
+    const id = req.params.id;
+    if(!id) return response(500, 'id不存在', res);
+    models.article.findOne({parentId: id})
+    .then(article => {
+      response(200, article, res);
+    }).catch(error => {
+      response(500, error, res);
+    })
   }
 }
 

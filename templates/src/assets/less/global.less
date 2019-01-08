@@ -5,3 +5,27 @@
 .sub-container-box {
   padding: 0 10px;
 }
+.flex {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  .sub-container-box {
+    flex: 1;
+    overflow: auto;
+    .quill-editor {
+      display: flex;
+      flex-direction: column;
+    }
+    .ql-container {
+      flex: 1;
+      height: auto;
+      overflow-y: auto;
+    }
+  }
+}
+.sub-footer {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
