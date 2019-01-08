@@ -1,0 +1,17 @@
+{
+  "source": {
+    "include": [
+      "routes"
+    ],
+    "exclude": [
+      "node_modules",
+      "templates"
+    ],
+    "includePattern": ".+\\js(doc)?$"
+  },
+  "opts": {
+    "template": "templates/default",
+    "encoding": "utf-8",
+    "destination": "./docs/"
+  }
+}

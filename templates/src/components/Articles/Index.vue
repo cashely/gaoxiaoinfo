@@ -31,7 +31,7 @@ export default {
   methods: {
     getArtilesDataAction() {
       getArtilesData().then(res => {
-        this.pages = res
+        this.pages = res.data
       })
     }
   },

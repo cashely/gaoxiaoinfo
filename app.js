@@ -7,6 +7,7 @@ var cors = require('cors');
 var router = require('./router.js');
 
 var app = express();
+const db = require('../spider/gaoxiaoinfo/db.config.js')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
