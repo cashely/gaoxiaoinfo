@@ -5,11 +5,12 @@
   "author": "cashely <290119516@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --hot",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@riophae/vue-treeselect": "^0.0.37",
     "axios": "^0.18.0",
     "element-ui": "^2.4.11",
     "less": "^3.9.0",

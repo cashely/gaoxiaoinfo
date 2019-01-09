@@ -21,3 +21,7 @@ export function getArtilesData(options) {
 export function getArtilesDetail(pid) {
   return $.get(`/articles/${pid}`)
 }
+
+export function getNavs() {
+  return $.get('/navs').then(res => res.data)
+}

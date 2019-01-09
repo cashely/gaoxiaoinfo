@@ -17,8 +17,18 @@
           <b>导航关键字管理</b>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="2-1"><i class="el-icon-location"></i><span>地区关键词</span></el-menu-item>
-          <el-menu-item index="2-2"><i class="el-icon-bell"></i><span>学校关键词</span></el-menu-item>
+          <el-menu-item index="/index/keyword/pointer"><i class="el-icon-location"></i><span>地区关键词</span></el-menu-item>
+          <el-menu-item index="/index/keyword/school"><i class="el-icon-bell"></i><span>学校关键词</span></el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
+      <el-submenu index="3">
+        <template slot="title">
+          <i class="el-icon-menu"></i>
+          <b>菜单管理</b>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="/index/menus"><i class="el-icon-more"></i><span>菜单列表</span></el-menu-item>
+          <el-menu-item index="/index/menu"><i class="el-icon-plus"></i><span>添加菜单</span></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
