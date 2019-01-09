@@ -3,13 +3,27 @@
   text-align: left;
 }
 .sub-container-box {
-  padding: 0 10px;
+  padding: 0 10px 0 0;
+}
+.ql-snow{
+  border-left: none!important;
+}
+.ql-toolbar{
+  background:#aadcf6;
+}
+.ql-container{
+  height:760px!important;
+}
+.ql-toolbar .ql-formats{
+  float: left;
+  text-align: left;
 }
 .flex {
   display: flex;
   height: 100%;
-  flex-direction: column;
+  flex-direction: row;
   .sub-container-box {
+    width:622px;
     flex: 1;
     overflow: auto;
     .quill-editor {
@@ -28,4 +42,9 @@
   display: flex;
   align-items: center;
   text-align: right;
+  width: 76px;
+  height: 32px;
+  position: absolute;
+  top:780px;
+  right: 5px;
 }
