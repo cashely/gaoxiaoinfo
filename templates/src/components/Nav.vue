@@ -31,6 +31,15 @@
           <el-menu-item index="/index/menu"><i class="el-icon-plus"></i><span>添加菜单</span></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
+      <el-submenu index="4">
+        <template slot="title">
+          <i class="el-icon-menu"></i>
+          <b>学校管理</b>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="/index/schools"><i class="el-icon-more"></i><span>学校列表</span></el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
     </el-menu>
   </nav>
 </template>

@@ -8,7 +8,7 @@
         <el-form-item label="地区">
           <el-select></el-select>
         </el-form-item>
-        <el-form-item label="学校名称">
+        <el-form-item>
           <el-button type="primary" icon="el-icon-search">查询</el-button>
         </el-form-item>
       </el-form>
