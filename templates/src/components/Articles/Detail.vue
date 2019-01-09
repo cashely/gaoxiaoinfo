@@ -1,8 +1,9 @@
 <template>
-  <div class="sub-container flex">
+  <div class="sub-container flex editorial-management">
     <div class="editor">
       <div class="sub-container-box">
-        <quillEditor style="height: 100%" v-model="fields.content" ref="contentQuillEditor" :options="editorOptions"></quillEditor>
+        <quillEditor style="height: 100%" v-model="fields.content" ref="contentQuillEditor" :options="editorOptions"
+          class="w-text"></quillEditor>
       </div>
     </div>
     <div class="menu">
@@ -11,21 +12,21 @@
           <el-form-item label="标题">
             <el-input v-model="fields.title" class="title"></el-input>
           </el-form-item>
-          <el-form-item label="自定义属性">
-            <el-checkbox v-model="fields.checked">置顶</el-checkbox>
-            <el-input type="number" v-model="number"></el-input>
-            <el-checkbox v-model="fields.checked">专题</el-checkbox>
+          <el-form-item label="自定义属性" class="placement">
+              <el-checkbox v-model="fields.checked">置顶</el-checkbox>
+              <el-input type="number" v-model="fields.checked" class="roof-placement"></el-input>
+              <el-checkbox v-model="checked">专题</el-checkbox>
           </el-form-item>
           <el-form-item label="发布时间">
-            <el-date-picker v-model="fields.publishDate" type="datetime" placeholder="选择日期时间"></el-date-picker>
+            <el-date-picker v-model="fields.publishDate" type="datetime" placeholder="选择日期时间" class="dateTime"></el-date-picker>
           </el-form-item>
           <el-form-item label="工作地点" class="place">
-            <el-select v-model="fields.address">
+            <el-select v-model="fields.address" class="locus">
               <el-option>空</el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="截止日期">
-            <el-date-picker v-model="fields.endDate" type="datetime" placeholder="选择日期时间"></el-date-picker>
+            <el-date-picker v-model="fields.endDate" type="datetime" placeholder="选择日期时间" class="deadline"></el-date-picker>
           </el-form-item>
           <el-form-item label="学校类型">
             <el-select v-model="fields.schoolType" class="check_select">
@@ -46,9 +47,7 @@
           </el-form-item>
           <br>
           <el-form-item label="所属分类">
-            <el-select v-model="fields.courseType" class="check_select">
-              <el-option>无</el-option>
-            </el-select>
+            <classification></classification>
           </el-form-item>
           <br>
           <el-form-item label="招聘人数">
@@ -67,18 +66,19 @@
             <el-input v-model="fields.views"></el-input>
           </el-form-item>
           <br>
-          <el-form-item label="描述">
+          <el-form-item label="描述" class="describe">
             <el-input type="textarea" :row="2" placeholder="Please enter the content" v-model="textarea" class="enter_text"></el-input>
           </el-form-item>
         </el-form>
+        <footer class="sub-footer">
+          <el-button type="primary" size="small">保存</el-button>
+        </footer>
       </header>
     </div>
-    <footer class="sub-footer">
-      <el-button type="primary" size="small">保存</el-button>
-    </footer>
   </div>
 </template>
 <script>
+  import classification from '../Menus';
   import {
     quillEditor
   } from "vue-quill-editor"; //调用编辑器
@@ -90,8 +90,10 @@
   } from "../../apis";
   export default {
     components: {
-      quillEditor
+      quillEditor,
+      classification
     },
+    methods: {},
     data() {
       return {
         fields: {
@@ -108,7 +110,7 @@
           registerType: "",
           courseType: "",
           views: "",
-          checked: true,
+          checked:false,
           number: "",
           textarea: ''
         },
@@ -130,29 +132,59 @@
 
 </script>
 
-<style>
-  .editor {
-    float: left;
+<style scope>
+  .editorial-management {
+    flex-direction: row;
   }
 
-  .menu {
-    float: left;
-    height:700px;
+  .editor .sub-container-box {
+    width: 1045px;
+    padding-left: 0px;
+    text-align: left;
+  }
+
+  .editor .sub-container-box .ql-snow {
+    border-left: none;
+  }
+
+  .editor .w-text .ql-container {
+    height: auto;
     overflow-y: scroll;
   }
 
-  .el-form-item {
-    height: 33px;
-    line-height: 33px;
+  .menu {
+    overflow-y: scroll;
+    height: auto;
+    border-bottom: 1px solid #c9c7c7;
+  }
+
+  .el-form-item--mini.el-form-item,
+  .el-form-item--small.el-form-item {
+    margin-bottom: 12px;
+  }
+
+  .menu .header-bar {
+    width: 237px;
+  }
+
+  .menu .header-bar .el-form-item {
+    width: 100%;
+  }
+
+  .placement .roof-placement {
+    width: 50px;
+  }
+
+  .locus .el-input__suffix {
+    right: 12px;
   }
 
   .el-input--small {
-    width: 80px;
+    width: 100%;
   }
 
   .title {
-    width: 260px;
-    margin-left: 28px;
+    width: 160px;
   }
 
   .place .el-input {
@@ -163,16 +195,21 @@
     width: 90px;
   }
 
-  .keyword {
-    margin-left: 15px;
+  .menu .header-bar .describe {
+    width: 50%;
   }
 
-  .enter_text{
-    width:350px;
+  .el-form-item__content .enter_text {
+    width: 200px;
   }
 
-  .enter_text textarea{
-    height: 100px;
+  .el-form-item__content .enter_text .el-textarea__inner {
+    height: 200px;
+  }
+
+  .editorial-management .sub-footer {
+    width: 60px;
+    margin: 0 auto;
   }
 
 </style>
