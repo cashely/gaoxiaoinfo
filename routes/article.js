@@ -3,6 +3,7 @@
  * @description 用于获取文章相关的接口
  */
 const models = require('../model.js');
+const {response} = require('../functions/helper.js');
 module.exports = {
   /**
    * @alias get /articles/
@@ -52,22 +53,5 @@ module.exports = {
     }).catch(error => {
       response(500, error, res);
     })
-  }
-}
-
-/**
- * @function
- * @param {Number} statu 
- * @param {Any} data 
- * @param {Responese} res 
- */
-function response(statu, data, res) {
-  if(statu === 200) {
-    res.json({
-      data: data
-    })
-  }else {
-    console.log(data)
-    res.sendStatus(500)
   }
 }

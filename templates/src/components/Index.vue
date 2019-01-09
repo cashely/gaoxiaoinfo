@@ -50,6 +50,9 @@ export default {
     flex: 1;
     overflow-y: auto;
   }
+  .el-submenu__title {
+    text-align: left;
+  }
 }
 </style>
 

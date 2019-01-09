@@ -14,4 +14,6 @@ module.exports = (app) => {
   .get('/articles', routes.article.articles)
   .get('/articles/page', routes.article.pageInfo)
   .get('/articles/:id', routes.article.detail)
+  .get('/navs', routes.category.navs)
+  .get('/navs/:id', routes.category.detail)
 }
