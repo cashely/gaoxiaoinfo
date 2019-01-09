@@ -14,6 +14,12 @@
         <el-form-item label="描述">
           <el-input type="textarea"></el-input>
         </el-form-item>
+        <el-form-item label="缩略图">
+          <el-upload multiple drag action="http://localhost:3000/upload/element-ui/" :on-success="uploadSuccessAction">
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+          </el-upload>
+        </el-form-item>
       </el-form>
     </div>
     <footer class="sub-footer">
@@ -33,6 +39,11 @@ export default {
       fields: {
         nav: null
       }
+    }
+  },
+  methods: {
+    uploadSuccessAction(response, file, fileList) {
+      console.log(response)
     }
   }
 }

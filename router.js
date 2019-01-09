@@ -16,4 +16,7 @@ module.exports = (app) => {
   .get('/articles/:id', routes.article.detail)
   .get('/navs', routes.category.navs)
   .get('/navs/:id', routes.category.detail)
+  .get('/upload/images', routes.upload.list)
+  .get('/upload/image/:filename', routes.upload.image)
+  .post('/upload/element-ui', routes.upload.elementUI)
 }

@@ -9,6 +9,7 @@ import KeywordSchool from '@/components/keywords/School'
 import KeywordPointer from '@/components/keywords/Pointer'
 import CategoryIndex from '@/components/Categorys/Index'
 import CategoryDetail from '@/components/Categorys/Detail'
+import SchoolsIndex from '@/components/Schools/Index'
 Vue.use(Router)
 
 export default new Router({
@@ -38,6 +39,9 @@ export default new Router({
       }, {
         path: 'menu',
         component: CategoryDetail
+      }, {
+        path: 'schools',
+        component: SchoolsIndex
       }]
     }
   ]
