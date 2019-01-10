@@ -137,8 +137,14 @@
     flex-direction: row;
   }
 
+  .editor{
+    display: flex;
+    flex: 1;
+  }
+
   .editor .sub-container-box {
-    width: 1045px;
+    display: flex;
+    flex: 1;
     padding-left: 0px;
     text-align: left;
   }
@@ -165,6 +171,7 @@
 
   .menu .header-bar {
     width: 237px;
+    flex-direction: column
   }
 
   .menu .header-bar .el-form-item {
