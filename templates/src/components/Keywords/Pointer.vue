@@ -10,8 +10,8 @@
         </el-form-item>
       </el-form>
     </header>
-    <div class="sub-container-box">
-      <el-button size="small" v-for="province in provinces" :key="province._id" @click="openAddTypeModalAction">{{province.title}}</el-button>
+    <div class="sub-container-box pointer-box">
+      <el-button size="small" v-for="province in provinces" :key="province._id" @click="openAddTypeModalAction" class="pointer">{{province.title}}</el-button>
     </div>
     <el-dialog width="30%" title="广东" :visible.sync="dialogVisible">
       <el-form>
@@ -27,32 +27,46 @@
   </div>
 </template>
 <script>
-import {getProvinces} from '../../apis.js';
-export default {
-  data() {
-    return {
-      type: "city",
-      dialogVisible: false,
-      provinces: []
-    }
-  },
-  methods: {
-    openAddTypeModalAction() {
-      this.dialogVisible = true
+  import {
+    getProvinces
+  } from '../../apis.js';
+  export default {
+    data() {
+      return {
+        type: "city",
+        dialogVisible: false,
+        provinces: []
+      }
     },
-    addTypeForPointerAction() {
-      alert(this.type)
-      this.dialogVisible = false
+    methods: {
+      openAddTypeModalAction() {
+        this.dialogVisible = true
+      },
+      addTypeForPointerAction() {
+        alert(this.type)
+        this.dialogVisible = false
+      },
+      getProvincesAction() {
+        getProvinces().then(provinces => {
+          this.provinces = provinces
+        })
+      }
     },
-    getProvincesAction() {
-      getProvinces().then(provinces => {
-        this.provinces = provinces
-      })
+    created() {
+      this.getProvincesAction()
     }
-  },
-  created() {
-    this.getProvincesAction()
   }
-}
+
 </script>
 
+<style scoped>
+  .pointer-box{
+    display: flex;
+    text-align: left;
+  }
+
+  .pointer-box .pointer {
+    flex: 1;
+  }
+
+</style>

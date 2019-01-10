@@ -126,7 +126,7 @@
 
 </script>
 
-<style scope>
+<style scoped>
   .editorial-management {
     flex-direction: row;
   }
