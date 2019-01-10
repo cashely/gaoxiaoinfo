@@ -12,11 +12,15 @@
     </header>
     <div class="sub-container-box">
       <el-table border size="small" stripe style="width: 100%" :data="specials">
-        <el-table-column prop="school" label="学校"></el-table-column>
-        <el-table-column prop="title" label="标题"></el-table-column>
-        <el-table-column prop="publishDate" label="发布日期" width="150"></el-table-column>
-        <el-table-column prop="address" label="招聘地点" width="150"></el-table-column>
-        <el-table-column prop="endDate" label="截止日期" width="150"></el-table-column>
+        <el-table-column prop="school" label="学校" width="300"></el-table-column>
+        <el-table-column prop="title" label="标题">
+          <template slot-scope="scope">
+            <el-tag type="danger" size="mini">专题</el-tag> {{scope.row.title}}
+          </template>
+        </el-table-column>
+        <el-table-column prop="publishDate" label="发布日期" width="100"></el-table-column>
+        <el-table-column prop="address" label="招聘地点" width="100"></el-table-column>
+        <el-table-column prop="endDate" label="截止日期" width="100"></el-table-column>
       </el-table>
     </div>
   </div>

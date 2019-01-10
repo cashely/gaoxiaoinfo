@@ -39,3 +39,7 @@ export function getProvinces() {
 export function getSpecials() {
   return $.get('/specials').then(res => res.data)
 }
+
+export function getSpecialById(id) {
+  return $.get(`/special/${id}`).then(res => res.data)
+}

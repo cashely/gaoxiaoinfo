@@ -11,7 +11,8 @@ import KeywordCourse from '@/components/keywords/Course'
 import CategoryIndex from '@/components/Categorys/Index'
 import CategoryDetail from '@/components/Categorys/Detail'
 import SchoolsIndex from '@/components/Schools/Index'
-import SpecialsIndex from '@/components/Specials/Index' 
+import SpecialsIndex from '@/components/Specials/Index'
+import SpecialsDetail from '@/components/Specials/Detail' 
 Vue.use(Router)
 
 export default new Router({
@@ -50,6 +51,9 @@ export default new Router({
       }, {
         path: 'specials',
         component: SpecialsIndex
+      }, {
+        path: 'special/:id',
+        component: SpecialsDetail
       }]
     }
   ]
