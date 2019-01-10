@@ -7,6 +7,7 @@ import ArticleIndex from '@/components/Articles/Index'
 import ArticleDetail from '@/components/Articles/Detail'
 import KeywordSchool from '@/components/keywords/School'
 import KeywordPointer from '@/components/keywords/Pointer'
+import KeywordCourse from '@/components/keywords/Course'
 import CategoryIndex from '@/components/Categorys/Index'
 import CategoryDetail from '@/components/Categorys/Detail'
 import SchoolsIndex from '@/components/Schools/Index'
@@ -28,11 +29,14 @@ export default new Router({
         path: 'articles/:id',
         component: ArticleDetail
       }, {
-        path: 'keyword/school',
+        path: 'keyword/schools',
         component: KeywordSchool
       }, {
-        path: 'keyword/pointer',
+        path: 'keyword/pointers',
         component: KeywordPointer
+      }, {
+        path: 'keyword/courses',
+        component: KeywordCourse
       }, {
         path: 'menus',
         component: CategoryIndex

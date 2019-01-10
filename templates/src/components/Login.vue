@@ -3,7 +3,7 @@
     <h3>logo</h3>
     <el-input v-model="username" placeholder="请输入内容" type="text"></el-input>
     <el-input v-model="password" placeholder="请输入密码" type="password" class="in-password"></el-input>
-    <span class="f-password" @click="">忘记密码？</span>
+    <span class="f-password">忘记密码？</span>
     <el-row>
       <el-button type="submit">登录</el-button>
     </el-row>

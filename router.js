@@ -18,5 +18,8 @@ module.exports = (app) => {
   .get('/navs/:id', routes.category.detail)
   .get('/upload/images', routes.upload.list)
   .get('/upload/image/:filename', routes.upload.image)
+  .get('/courses', routes.course.list)
+  .get('/schools', routes.school.list)
+  .get('/provinces', routes.province.list)
   .post('/upload/element-ui', routes.upload.elementUI)
 }

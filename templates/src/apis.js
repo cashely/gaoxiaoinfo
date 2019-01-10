@@ -25,3 +25,13 @@ export function getArtilesDetail(pid) {
 export function getNavs() {
   return $.get('/navs').then(res => res.data)
 }
+
+export function getCourses() {
+  return $.get('/courses').then(res => res.data)
+}
+export function getSchools() {
+  return $.get('/schools').then(res => res.data)
+}
+export function getProvinces() {
+  return $.get('/provinces').then(res => res.data)
+}

@@ -11,7 +11,7 @@
       </el-form>
     </header>
     <div class="sub-container-box">
-      <el-button size="small" v-for="i in 100" :key="i" @click="openAddTypeModalAction">广东</el-button>
+      <el-button size="small" v-for="province in provinces" :key="province._id" @click="openAddTypeModalAction">{{province.title}}</el-button>
     </div>
     <el-dialog width="30%" title="广东" :visible.sync="dialogVisible">
       <el-form>
@@ -27,11 +27,13 @@
   </div>
 </template>
 <script>
+import {getProvinces} from '../../apis.js';
 export default {
   data() {
     return {
       type: "city",
-      dialogVisible: false
+      dialogVisible: false,
+      provinces: []
     }
   },
   methods: {
@@ -41,7 +43,15 @@ export default {
     addTypeForPointerAction() {
       alert(this.type)
       this.dialogVisible = false
+    },
+    getProvincesAction() {
+      getProvinces().then(provinces => {
+        this.provinces = provinces
+      })
     }
+  },
+  created() {
+    this.getProvincesAction()
   }
 }
 </script>

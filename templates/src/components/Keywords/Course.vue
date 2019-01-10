@@ -11,28 +11,27 @@
       </el-form>
     </header>
     <div class="sub-container-box">
-      <el-button size="small" v-for="school in schools" :key="school._id">{{school.title}}</el-button>
+      <el-button size="small" v-for="course in courses" :key="course._id">{{course.title}}</el-button>
     </div>
   </div>
 </template>
 <script>
-import {getSchools} from '../../apis.js';
+import {getCourses} from '../../apis.js';
 export default {
   data() {
     return {
-      schools: []
+      courses: []
     }
   },
   methods: {
-    getSchoolsAction() {
-      getSchools().then(schools => {
-        this.schools = schools
+    getCoursesAction() {
+      getCourses().then(courses => {
+        this.courses = courses
       })
     }
   },
   created() {
-    this.getSchoolsAction()
+    this.getCoursesAction()
   }
 }
 </script>
-

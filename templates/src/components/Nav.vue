@@ -17,8 +17,9 @@
           <b>导航关键字管理</b>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/index/keyword/pointer"><i class="el-icon-location"></i><span>地区关键词</span></el-menu-item>
-          <el-menu-item index="/index/keyword/school"><i class="el-icon-bell"></i><span>学校关键词</span></el-menu-item>
+          <el-menu-item index="/index/keyword/pointers"><i class="el-icon-location"></i><span>地区关键词</span></el-menu-item>
+          <el-menu-item index="/index/keyword/schools"><i class="el-icon-bell"></i><span>学校关键词</span></el-menu-item>
+          <el-menu-item index="/index/keyword/courses"><i class="el-icon-bell"></i><span>学科关键词</span></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="3">
