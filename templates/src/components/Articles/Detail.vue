@@ -6,74 +6,68 @@
           class="w-text"></quillEditor>
       </div>
     </div>
-    <div class="menu">
-      <header class="header-bar">
-        <el-form inline size="small">
-          <el-form-item label="标题">
-            <el-input v-model="fields.title" class="title"></el-input>
-          </el-form-item>
-          <el-form-item label="自定义属性" class="placement">
+    <div class="right-content">
+      <div class="menu">
+        <header class="header-bar">
+          <el-form size="small">
+            <el-form-item label="标题">
+              <el-input v-model="fields.title" class="title"></el-input>
+            </el-form-item>
+            <el-form-item label="自定义属性" class="placement">
               <el-checkbox v-model="fields.checked">置顶</el-checkbox>
               <el-input type="number" v-model="fields.checked" class="roof-placement"></el-input>
               <el-checkbox v-model="checked">专题</el-checkbox>
-          </el-form-item>
-          <el-form-item label="发布时间">
-            <el-date-picker v-model="fields.publishDate" type="datetime" placeholder="选择日期时间" class="dateTime"></el-date-picker>
-          </el-form-item>
-          <el-form-item label="工作地点" class="place">
-            <el-select v-model="fields.address" class="locus">
-              <el-option>空</el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="截止日期">
-            <el-date-picker v-model="fields.endDate" type="datetime" placeholder="选择日期时间" class="deadline"></el-date-picker>
-          </el-form-item>
-          <el-form-item label="学校类型">
-            <el-select v-model="fields.schoolType" class="check_select">
-              <el-option>无</el-option>
-            </el-select>
-          </el-form-item>
-          <br>
-          <el-form-item label="所属地区">
-            <el-select v-model="fields.province" class="check_select">
-              <el-option>无</el-option>
-            </el-select>
-          </el-form-item>
-          <br>
-          <el-form-item label="所属学科">
-            <el-select v-model="fields.courseType" class="check_select">
-              <el-option>无</el-option>
-            </el-select>
-          </el-form-item>
-          <br>
-          <el-form-item label="所属分类">
-            <classification></classification>
-          </el-form-item>
-          <br>
-          <el-form-item label="招聘人数">
-            <el-input v-model="fields.peoples"></el-input>
-          </el-form-item>
-          <br>
-          <el-form-item label="应聘方式">
-            <el-input v-model="fields.registerType"></el-input>
-          </el-form-item>
-          <br>
-          <el-form-item label="关键词">
-            <el-input v-model="fields.keywords" class="keyword"></el-input>
-          </el-form-item>
-          <br>
-          <el-form-item label="查看次数">
-            <el-input v-model="fields.views"></el-input>
-          </el-form-item>
-          <br>
-          <el-form-item label="描述" class="describe">
-            <el-input type="textarea" :row="2" placeholder="Please enter the content" v-model="textarea" class="enter_text"></el-input>
-          </el-form-item>
-        </el-form>
-        <footer class="sub-footer">
-          <el-button type="primary" size="small">保存</el-button>
-        </footer>
-      </header>
+            </el-form-item>
+            <el-form-item label="发布时间">
+              <el-date-picker v-model="fields.publishDate" type="datetime" placeholder="选择日期时间" class="dateTime"></el-date-picker>
+            </el-form-item>
+            <el-form-item label="工作地点" class="place">
+              <el-select v-model="fields.address" class="locus">
+                <el-option>空</el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="截止日期">
+              <el-date-picker v-model="fields.endDate" type="datetime" placeholder="选择日期时间" class="deadline"></el-date-picker>
+            </el-form-item>
+            <el-form-item label="学校类型">
+              <el-select v-model="fields.schoolType" class="check_select">
+                <el-option>无</el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="所属地区">
+              <el-select v-model="fields.province" class="check_select">
+                <el-option>无</el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="所属学科">
+              <el-select v-model="fields.courseType" class="check_select">
+                <el-option>无</el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="所属分类">
+              <classification></classification>
+            </el-form-item>
+            <el-form-item label="招聘人数">
+              <el-input v-model="fields.peoples"></el-input>
+            </el-form-item>
+            <el-form-item label="应聘方式">
+              <el-input v-model="fields.registerType"></el-input>
+            </el-form-item>
+            <el-form-item label="关键词">
+              <el-input v-model="fields.keywords" class="keyword"></el-input>
+            </el-form-item>
+            <el-form-item label="查看次数">
+              <el-input v-model="fields.views"></el-input>
+            </el-form-item>
+            <el-form-item label="描述" class="describe">
+              <el-input type="textarea" :row="2" placeholder="Please enter the content" v-model="textarea" class="enter_text"></el-input>
+            </el-form-item>
+          </el-form>
+        </header>
+      </div>
+      <footer class="sub-footer">
+        <el-button type="primary" size="small">保存</el-button>
+      </footer>
     </div>
   </div>
 </template>
@@ -110,7 +104,7 @@
           registerType: "",
           courseType: "",
           views: "",
-          checked:false,
+          checked: false,
           number: "",
           textarea: ''
         },
@@ -137,7 +131,7 @@
     flex-direction: row;
   }
 
-  .editor{
+  .editor {
     display: flex;
     flex: 1;
   }
@@ -158,6 +152,11 @@
     overflow-y: scroll;
   }
 
+  .right-content{
+    display: flex;
+    flex-direction: column;
+  }
+
   .menu {
     overflow-y: scroll;
     height: auto;
@@ -174,8 +173,13 @@
     flex-direction: column
   }
 
-  .menu .header-bar .el-form-item {
-    width: 100%;
+  .placement {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .placement .el-form-item__label {
+    text-align: left;
   }
 
   .placement .roof-placement {
@@ -207,7 +211,7 @@
   }
 
   .el-form-item__content .enter_text {
-    width: 200px;
+    width: 236px;
   }
 
   .el-form-item__content .enter_text .el-textarea__inner {
@@ -216,7 +220,10 @@
 
   .editorial-management .sub-footer {
     width: 60px;
-    margin: 0 auto;
+    margin: 10px auto;
+    /* 
+    position: relative;
+    left: 80px; */
   }
 
 </style>
