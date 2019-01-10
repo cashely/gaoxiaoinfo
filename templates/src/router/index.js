@@ -11,6 +11,7 @@ import KeywordCourse from '@/components/keywords/Course'
 import CategoryIndex from '@/components/Categorys/Index'
 import CategoryDetail from '@/components/Categorys/Detail'
 import SchoolsIndex from '@/components/Schools/Index'
+import SpecialsIndex from '@/components/Specials/Index' 
 Vue.use(Router)
 
 export default new Router({
@@ -46,6 +47,9 @@ export default new Router({
       }, {
         path: 'schools',
         component: SchoolsIndex
+      }, {
+        path: 'specials',
+        component: SpecialsIndex
       }]
     }
   ]

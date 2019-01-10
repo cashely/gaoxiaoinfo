@@ -21,5 +21,7 @@ module.exports = (app) => {
   .get('/courses', routes.course.list)
   .get('/schools', routes.school.list)
   .get('/provinces', routes.province.list)
+  .get('/specials', routes.special.list)
+  .get('/special/:id', routes.special.detail)
   .post('/upload/element-ui', routes.upload.elementUI)
 }

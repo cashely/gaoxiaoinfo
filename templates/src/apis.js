@@ -35,3 +35,7 @@ export function getSchools() {
 export function getProvinces() {
   return $.get('/provinces').then(res => res.data)
 }
+
+export function getSpecials() {
+  return $.get('/specials').then(res => res.data)
+}

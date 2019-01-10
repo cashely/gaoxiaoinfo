@@ -18,7 +18,7 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="/index/keyword/pointers"><i class="el-icon-location"></i><span>地区关键词</span></el-menu-item>
-          <el-menu-item index="/index/keyword/schools"><i class="el-icon-bell"></i><span>学校关键词</span></el-menu-item>
+          <el-menu-item index="/index/keyword/schools"><i class="el-icon-bell"></i><span>高校关键词</span></el-menu-item>
           <el-menu-item index="/index/keyword/courses"><i class="el-icon-bell"></i><span>学科关键词</span></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
@@ -39,6 +39,15 @@
         </template>
         <el-menu-item-group>
           <el-menu-item index="/index/schools"><i class="el-icon-more"></i><span>学校列表</span></el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
+      <el-submenu index="5">
+        <template slot="title">
+          <i class="el-icon-menu"></i>
+          <b>专题页面管理</b>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="/index/specials"><i class="el-icon-more"></i><span>专题列表</span></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
