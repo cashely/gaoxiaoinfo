@@ -10,8 +10,10 @@
         </el-form-item>
       </el-form>
     </header>
-    <div class="sub-container-box course-box">
-      <el-button size="small" v-for="course in courses" :key="course._id" class="course">{{course.title}}</el-button> 
+    <div class="sub-container-box">
+      <div class="tag-box">
+        <el-button size="small" v-for="course in courses" :key="course._id" class="tag">{{course.title}}</el-button>
+      </div> 
     </div>
   </div>
 </template>
@@ -38,15 +40,3 @@
   }
 
 </script>
-
-<style scoped>
-  .course-box{
-    display: flex;
-    text-align: left;
-  }
-
-  .course-box .course{
-    margin:5px 5px;
-    flex: 1;
-  }
-</style>

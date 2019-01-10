@@ -11,7 +11,9 @@
       </el-form>
     </header>
     <div class="sub-container-box">
-      <el-button size="small" v-for="school in schools" :key="school._id">{{school.title}}</el-button>
+      <div class="tag-box">
+        <el-button size="small" v-for="school in schools" :key="school._id" class="tag">{{school.title}}</el-button>
+      </div>
     </div>
   </div>
 </template>

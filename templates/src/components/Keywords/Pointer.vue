@@ -10,8 +10,10 @@
         </el-form-item>
       </el-form>
     </header>
-    <div class="sub-container-box pointer-box">
-      <el-button size="small" v-for="province in provinces" :key="province._id" @click="openAddTypeModalAction" class="pointer">{{province.title}}</el-button>
+    <div class="sub-container-box">
+      <div class="tag-box">
+        <el-button size="small" v-for="province in provinces" :key="province._id" @click="openAddTypeModalAction" class="tag">{{province.title}}</el-button>
+      </div>
     </div>
     <el-dialog width="30%" title="广东" :visible.sync="dialogVisible">
       <el-form>
@@ -58,15 +60,3 @@
   }
 
 </script>
-
-<style scoped>
-  .pointer-box{
-    display: flex;
-    text-align: left;
-  }
-
-  .pointer-box .pointer {
-    flex: 1;
-  }
-
-</style>
