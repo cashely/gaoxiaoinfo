@@ -41,6 +41,7 @@ export default {
   height: 100%;
   > nav {
     width: 200px;
+    overflow-y: auto;
     height: 100%;
     > .el-menu {
       height: 100%;

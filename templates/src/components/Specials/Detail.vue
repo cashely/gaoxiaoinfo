@@ -17,6 +17,16 @@
         <el-form-item label="截止日期">
           <el-date-picker v-model="fields.endDate"></el-date-picker>
         </el-form-item>
+        <el-form-item label="缩略图">
+          <el-upload
+            class="avatar-uploader"
+            action="http://localhost:3000/upload/element-ui/"
+            :show-file-list="false"
+            :on-success="handleThumbSuccess">
+            <img v-if="fields.logo" :src="fields.logo" class="avatar">
+            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+          </el-upload>
+        </el-form-item>
       </el-form>
     </header>
     <div class="sub-container-box">
@@ -56,6 +66,9 @@ export default {
       getSpecialById(this.id).then(res => {
         this.fields = Object.assign({}, this.fields, res)
       })
+    },
+    handleThumbSuccess(data) {
+      this.fields.logo = 'http://localhost:3000'+data.data
     }
   },
   created() {

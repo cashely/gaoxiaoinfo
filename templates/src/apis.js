@@ -43,3 +43,13 @@ export function getSpecials() {
 export function getSpecialById(id) {
   return $.get(`/special/${id}`).then(res => res.data)
 }
+
+export function getCourseById(id) {
+  return $.get(`/course/${id}`).then(res => res.data)
+}
+export function addCourse(params) {
+  return $.post('/course', params)
+}
+export function updateCourseById({id, params}) {
+  return $.post(`/course/${id}`, params)
+}
