@@ -28,6 +28,7 @@ module.exports = (app) => {
   .post('/province/:id', routes.province.update)
   .post('/province', routes.province.add)
   .get('/specials', routes.special.list)
+  .get('/specials/page', routes.special.pageInfo)
   .get('/special/:id', routes.special.detail)
   .post('/upload/element-ui', routes.upload.elementUI)
   .get('/schools', routes.school.list)
