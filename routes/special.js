@@ -23,6 +23,17 @@ module.exports = {
       response(500, error, res)
     })
   },
+  pageInfo: (req, res, next) => {
+    let conditions = {};
+    if(q._k) {
+      conditions.title = new RegExp(q._k)
+    }
+    models.special.count(conditions).then(count => {
+      response(200, count, res)
+    }).catch(error => {
+      response(500, error, res)
+    })
+  },
   detail: (req, res, next) => {
     let id = req.params.id;
     models.special.findById(id)

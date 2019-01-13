@@ -29,11 +29,20 @@ export function getNavs() {
 export function getCourses() {
   return $.get('/courses').then(res => res.data)
 }
-export function getSchools() {
-  return $.get('/schools').then(res => res.data)
+export function getHighs() {
+  return $.get('/highs').then(res => res.data)
 }
-export function getProvinces() {
-  return $.get('/provinces').then(res => res.data)
+export function getProvinces(type) {
+  return $.get(`/provinces${type ? '?type=' + type : ""}`).then(res => res.data)
+}
+export function addProvince(params) {
+  return $.post('/province', params)
+}
+export function updateProvinceById(id, params) {
+  return $.post(`/province/${id}`, params)
+}
+export function  getProvinceById(id) {
+  return $.get(`/province/${id}`).then(res => res.data)
 }
 
 export function getSpecials() {
@@ -52,4 +61,24 @@ export function addCourse(params) {
 }
 export function updateCourseById({id, params}) {
   return $.post(`/course/${id}`, params)
+}
+
+export function getSchools(params) {
+  return $.get('/schools', params).then(res => res.data)
+}
+
+export function getSchoolById(id) {
+  return $.get(`/school/${id}`).then(res => res.data)
+}
+
+export function getSchoolsPage(params) {
+  return $.get('/schools/page', params).then(res => res.data)
+}
+
+export function updateSchoolById(id, params) {
+  return $.post(`/school/${id}`, params)
+}
+
+export function addSchool(params) {
+  return $.post('/school', params)
 }

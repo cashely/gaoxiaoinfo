@@ -175,32 +175,6 @@
 .drag-left {
   min-width: 200px;
 }
-.drag-button {
-  background-color: #fff;
-  border: 1px solid #d9d9d9;
-  border-radius: 3px;
-  padding: 9px 15px;
-  font-size: 12px;
-  margin: 5px 10px;
-  outline: none;
-  line-height: 1;
-  color: #606266;
-  cursor: pointer;
-  &:hover {
-    border-color: #c6e2ff;
-    background-color: #ecf5ff;
-    color: #409eff;
-  }
-  &:active {
-    border-color: #409eff;
-  }
-  &.block {
-    width: 100%;
-    text-align: center;
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
 .el-main {
   padding: 0 20px;
 }
