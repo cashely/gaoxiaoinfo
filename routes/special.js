@@ -25,6 +25,7 @@ module.exports = {
   },
   pageInfo: (req, res, next) => {
     let conditions = {};
+    let q = req.query;
     if(q._k) {
       conditions.title = new RegExp(q._k)
     }
