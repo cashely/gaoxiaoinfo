@@ -36,6 +36,7 @@ module.exports = {
    * @param {String} _k 查询关键词
    */
   pageInfo: (req, res, next) => {
+    const q = req.query;
     let conditions = {};
     if(q._k) {
       conditions.title = new RegExp(q._k)

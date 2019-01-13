@@ -15,7 +15,7 @@ const $ = {
 }
 
 export function getArtilesData(options) {
-  return $.get('/articles')
+  return $.get('/articles', options)
 }
 
 export function getArtilesDetail(pid) {
@@ -43,6 +43,10 @@ export function updateProvinceById(id, params) {
 }
 export function  getProvinceById(id) {
   return $.get(`/province/${id}`).then(res => res.data)
+}
+
+export function getArticlePageInfo(params) {
+  return $.get('/articles/page', params).then(res => res.data)
 }
 
 export function getSpecials() {
