@@ -26,7 +26,7 @@ module.exports = {
       skip = +q.offset
     }
     if(q.province) {
-      conditions.province = new RegExp(q.province)
+      conditions.provinceId = q.province
     }
     if(q.address) {
       conditions.address = new RegExp(q.address)
@@ -37,7 +37,7 @@ module.exports = {
     if(q.school) {
       conditions.school = new RegExp(q.school)
     }
-    models.page.find().where(conditions).populate('parentId').limit(limit).skip(skip).then(pages => {
+    models.article.find().where(conditions).populate('parentId').limit(limit).skip(skip).then(pages => {
       response(200, pages, res)
     }).catch(err=>{
       response(500, err, res)
@@ -65,7 +65,7 @@ module.exports = {
     if(q.school) {
       conditions.school = new RegExp(q.school)
     }
-    models.page.count(conditions).then(num => {
+    models.article.count(conditions).then(num => {
       response(200, num, res)
     })
   },
