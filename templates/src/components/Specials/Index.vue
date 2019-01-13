@@ -2,8 +2,14 @@
   <div class="sub-container">
     <header class="header-bar">
       <el-form inline size="small">
-        <el-form-item label="关键字">
+        <el-form-item label="省区">
           <el-input placeholder="湖北、湖南..." v-model="title"></el-input>
+        </el-form-item>
+        <el-form-item label="招聘地点">
+          <el-input placeholder="" v-model="address"></el-input>
+        </el-form-item>
+        <el-form-item label="学校">
+          <el-input placeholder="" v-model="school"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" icon="el-icon-search" @click="searchAction()">查询</el-button>
@@ -43,6 +49,8 @@ export default {
       specials: [],
       total: 0,
       title: '',
+      address: '',
+      school: '',
       limit: 20,
       page: 1
     }
@@ -51,7 +59,9 @@ export default {
     getSpecialsAction() {
       getSpecials({
         offset:(this.page-1)*this.limit,
-        _k:this.title
+        _k:this.title,
+        address:this.address,
+        school:this.shool
       }).then(res => {
         this.specials = res
       })
@@ -62,7 +72,9 @@ export default {
     },
     getSpecialPageInfoAction() {
       getSpecialPageInfo({
-        _k:this.title
+        _k:this.title,
+        address:this.address,
+        shool:this.school
       }).then(count => {
         this.total = count
       })
