@@ -15,7 +15,7 @@ const $ = {
 }
 
 export function getArtilesData(options) {
-  return $.get('/articles')
+  return $.get('/articles', options)
 }
 
 export function getArtilesDetail(pid) {
@@ -34,6 +34,10 @@ export function getSchools() {
 }
 export function getProvinces() {
   return $.get('/provinces').then(res => res.data)
+}
+
+export function getArticlePageInfo(params) {
+  return $.get('/articles/page', params).then(res => res.data)
 }
 
 export function getSpecials() {

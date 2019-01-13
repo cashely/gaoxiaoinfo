@@ -18,30 +18,54 @@
         <el-table-column prop="endDate" label="截止日期" width="150"></el-table-column>
       </el-table>
     </div>
+    <div class="block">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="total"
+         @current-change="currentChangeAction"
+        >
+      </el-pagination>
+    </div>
   </div>
 </template>
 <script>
-import {getArtilesData} from '../../apis'
+import {getArtilesData, getArticlePageInfo} from '../../apis'
 export default {
   data() {
     return {
-      pages: []
+      pages: [],
+      total: 0,
+      page: 1,
+      limit: 20
     }
   },
   methods: {
     getArtilesDataAction() {
-      getArtilesData().then(res => {
+      getArtilesData({
+        offset: (this.page - 1) * 20
+      }).then(res => {
         this.pages = res.data
+      })
+    },
+    getArticlePageInfoAction() {
+      getArticlePageInfo().then(count => {
+        this.total = count
       })
     },
     routerDetailAction(row, event, column) {
       this.$router.push({
         path: `/index/articles/${row._id}`
       })
+    },
+    currentChangeAction(page) {
+      this.page = page;
+      this.getArtilesDataAction();
     }
   },
   created() {
     this.getArtilesDataAction()
+    this.getArticlePageInfoAction()
   }
 }
 </script>
