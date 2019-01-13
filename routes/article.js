@@ -25,6 +25,18 @@ module.exports = {
     if(q.offset) {
       skip = +q.offset
     }
+    if(q.province) {
+      conditions.province = new RegExp(q.province)
+    }
+    if(q.address) {
+      conditions.address = new RegExp(q.address)
+    }
+    if(q.course) {
+      conditions.course = new RegExp(q.course)
+    }
+    if(q.school) {
+      conditions.school = new RegExp(q.school)
+    }
     models.page.find().where(conditions).populate('parentId').limit(limit).skip(skip).then(pages => {
       response(200, pages, res)
     }).catch(err=>{
@@ -40,6 +52,18 @@ module.exports = {
     let conditions = {};
     if(q._k) {
       conditions.title = new RegExp(q._k)
+    }
+    if(q.province) {
+      conditions.province = new RegExp(q.province)
+    }
+    if(q.address) {
+      conditions.address = new RegExp(q.address)
+    }
+    if(q.course) {
+      conditions.course = new RegExp(q.course)
+    }
+    if(q.school) {
+      conditions.school = new RegExp(q.school)
     }
     models.page.count(conditions).then(num => {
       response(200, num, res)
