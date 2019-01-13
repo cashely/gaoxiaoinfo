@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import {getSchools} from '../../apis.js';
+import {getHighs} from '../../apis.js';
 export default {
   data() {
     return {
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     getSchoolsAction() {
-      getSchools().then(schools => {
+      getHighs().then(schools => {
         this.schools = schools
       })
     }
