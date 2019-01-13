@@ -3,10 +3,10 @@
     <header class="header-bar">
       <el-form inline size="small">
         <el-form-item label="关键字">
-          <el-input placeholder="湖北、湖南..."></el-input>
+          <el-input placeholder="湖北、湖南..." v-model="title"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" icon="el-icon-search">查询</el-button>
+          <el-button type="primary" icon="el-icon-search" @click="searchAction()">查询</el-button>
         </el-form-item>
       </el-form>
     </header>
@@ -23,25 +23,58 @@
         <el-table-column prop="endDate" label="截止日期" width="100"></el-table-column>
       </el-table>
     </div>
+    <div class="block">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="total"
+         @current-change="currentChangeAction"
+         :page-size="limit"
+        >
+      </el-pagination>
+    </div>
   </div>
 </template>
 <script>
-import {getSpecials} from '../../apis'
+import {getSpecials, getSpecialPageInfo} from '../../apis'
 export default {
   data() {
     return {
-      specials: []
+      specials: [],
+      total: 0,
+      title: '',
+      limit: 20,
+      page: 1
     }
   },
   methods: {
     getSpecialsAction() {
-      getSpecials().then(res => {
+      getSpecials({
+        offset:(this.page-1)*this.limit,
+        _k:this.title
+      }).then(res => {
         this.specials = res
       })
+    },
+    searchAction() {
+      this.getSpecialsAction();
+      this.getSpecialPageInfoAction()
+    },
+    getSpecialPageInfoAction() {
+      getSpecialPageInfo({
+        _k:this.title
+      }).then(count => {
+        this.total = count
+      })
+    },
+    currentChangeAction(page) {
+      this.page = page;
+      this.getSpecialsAction()
     }
   },
   created() {
-    this.getSpecialsAction()
+    this.getSpecialsAction();
+    this.getSpecialPageInfoAction()
   }
 }
 </script>

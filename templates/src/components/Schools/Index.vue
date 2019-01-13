@@ -3,13 +3,16 @@
     <header class="header-bar">
       <el-form inline size="small">
         <el-form-item label="学校名称">
-          <el-input></el-input>
+          <el-input v-model="title"></el-input>
         </el-form-item>
-        <el-form-item label="地区">
-          <el-input></el-input>
+        <el-form-item label="省区">
+          <el-input v-model="province"></el-input>
+        </el-form-item>
+        <el-form-item label="城市">
+          <el-input v-model="city"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" icon="el-icon-search">查询</el-button>
+          <el-button type="primary" icon="el-icon-search" @click="searchAction()">查询</el-button>
         </el-form-item>
       </el-form>
     </header>
@@ -28,25 +31,64 @@
         </el-table-column>
       </el-table>
     </div>
+    <div class="block">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="total"
+         @current-change="currentChangeAction"
+         :page-size="limit"
+        >
+      </el-pagination>
+    </div>
   </div>
 </template>
 <script>
-import {getSchools} from '../../apis.js';
+import {getSchools ,getSchoolsPageInfo} from '../../apis.js';
 export default {
   data() {
     return {
-      schools: []
+      schools: [],
+      title: '',
+      province: '',
+      city: '',
+      total: 0,
+      limit: 20,
+      page: 1
     }
   },
   methods: {
     getSchoolsAction() {
-      getSchools().then(schools => {
+      getSchools({
+        offset:(this.page-1)*this.limit,
+        _k:this.title,
+        province:this.province,
+        city:this.city
+      }).then(schools => {
         this.schools = schools
       })
+    },
+    searchAction() {
+      this.getSchoolsAction();
+      this.getSchoolsPageInfoAction()
+    },
+    getSchoolsPageInfoAction() {
+      getSchoolsPageInfo({
+        _k:this.title,
+        province:this.province,
+        city:this.city
+      }).then(count => {
+        this.total = count
+      })
+    },
+    currentChangeAction(page) {
+      this.page = page;
+      this.getSchoolsAction()
     }
   },
   created() {
-    this.getSchoolsAction()
+    this.getSchoolsAction();
+    this.getSchoolsPageInfoAction()
   }
 }
 </script>
