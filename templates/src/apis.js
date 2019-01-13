@@ -49,8 +49,16 @@ export function getArticlePageInfo(params) {
   return $.get('/articles/page', params).then(res => res.data)
 }
 
-export function getSpecials() {
-  return $.get('/specials').then(res => res.data)
+export function getSpecialPageInfo(params) {
+  return $.get('/specials/page', params).then(res => res.data)
+}
+
+export function getSpecials(params) {
+  return $.get('/specials', params).then(res => res.data)
+}
+
+export function getSchoolsPageInfo(params){
+  return $.get('/schools/page', params).then(res => res.data)
 }
 
 export function getSpecialById(id) {
@@ -63,6 +71,7 @@ export function getCourseById(id) {
 export function addCourse(params) {
   return $.post('/course', params)
 }
+
 export function updateCourseById({id, params}) {
   return $.post(`/course/${id}`, params)
 }
