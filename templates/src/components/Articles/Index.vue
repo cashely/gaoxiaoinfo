@@ -2,11 +2,18 @@
   <div class="sub-container">
     <header class="header-bar">
       <el-form inline size="small">
-        <el-form-item label="关键字">
-          <el-input placeholder="湖北、湖南..."></el-input>
+        <el-form-item label="文章标题">
+          <el-input placeholder="" v-model="title"></el-input>
+        </el-form-item>
+        <el-form-item label="所属省份">
+          <el-input v-model="province" placeholder="请选择">
+          </el-input>
+        </el-form-item>
+        <el-form-item label="招聘地点">
+          <el-input placeholder="" v-model="address"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" icon="el-icon-search">查询</el-button>
+          <el-button type="primary" icon="el-icon-search" @click="searchAction()">查询</el-button>
         </el-form-item>
       </el-form>
     </header>
@@ -24,32 +31,71 @@
         layout="prev, pager, next"
         :total="total"
          @current-change="currentChangeAction"
+         :page-size="limit"
         >
       </el-pagination>
     </div>
   </div>
 </template>
 <script>
-import {getArtilesData, getArticlePageInfo} from '../../apis'
+import {getArtilesData, getArticlePageInfo, getProvinces} from '../../apis'
 export default {
   data() {
     return {
       pages: [],
+      title: '',
+      provinces: [],
+      province: '',
+      address: '',
+      course: '',
+      school: '',
       total: 0,
       page: 1,
       limit: 20
     }
   },
+  computed: {
+      computedProvinces() {
+        return this.provinces.filter(province => province.type === 0).map(province => {
+          province.children = this.provinces.filter(p => p.parentId === province._id && p.type !== 0);
+          return province;
+        })
+      },
+      computedUnType() {
+        return this.provinces.filter(province => (province.type !== 0 ) && !province.parentId)
+      }
+    },
   methods: {
     getArtilesDataAction() {
       getArtilesData({
-        offset: (this.page - 1) * 20
+        offset: (this.page - 1) * 20,
+        _k:this.title,
+        province: this.province,
+        address:this.address
       }).then(res => {
         this.pages = res.data
       })
     },
+    getProvincesAction() {
+        getProvinces().then(provinces => {
+          this.provinces = provinces
+        })
+      },
+    searchAction() {
+      this.getArtilesDataAction();
+      this.getArticlePageInfoAction()
+    },
+      getProvincesAction() {
+        getProvinces().then(provinces => {
+          this.provinces = provinces
+        })
+      },
     getArticlePageInfoAction() {
-      getArticlePageInfo().then(count => {
+      getArticlePageInfo({
+        _k:this.title,
+        province:this.province,
+        address:this.address
+      }).then(count => {
         this.total = count
       })
     },
@@ -66,6 +112,7 @@ export default {
   created() {
     this.getArtilesDataAction()
     this.getArticlePageInfoAction()
+    this.getProvincesAction()
   }
 }
 </script>
