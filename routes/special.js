@@ -15,6 +15,12 @@ module.exports = {
     if(q.offset) {
       skip = + q.offset
     }
+    if(q.school) {
+      conditions.school = new RegExp(q.school)
+    }
+    if(q.address) {
+      conditions.address = new RegExp(q.address)
+    }
     models.special.find().where(conditions).skip(skip).limit(limit).select('_id title school address publishDate address endDate')
     .then(specials => {
       response(200, specials, res)
@@ -28,6 +34,12 @@ module.exports = {
     let q = req.query;
     if(q._k) {
       conditions.title = new RegExp(q._k)
+    }
+    if(q.school) {
+      conditions.school = new RegExp(q.school)
+    }
+    if(q.address) {
+      conditions.address = new RegExp(q.address)
     }
     models.special.count(conditions).then(count => {
       response(200, count, res)
