@@ -26,7 +26,7 @@ module.exports = {
       skip = +q.offset
     }
     if(q.province) {
-      conditions.provinceId = q.province
+      conditions.province = new RegExp(q.province)
     }
     if(q.address) {
       conditions.address = new RegExp(q.address)
@@ -72,7 +72,7 @@ module.exports = {
   detail: (req, res, next) => {
     const id = req.params.id;
     if(!id) return response(500, 'id不存在', res);
-    models.article.findOne({parentId: id})
+    models.article.findById(id)
     .then(article => {
       response(200, article, res);
     }).catch(error => {
