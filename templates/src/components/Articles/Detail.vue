@@ -173,13 +173,8 @@
     flex-direction: column
   }
 
-  .placement {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .placement .el-form-item__label {
-    text-align: left;
+  .el-form-item--small .el-form-item__label{
+    width:100%;
   }
 
   .placement .roof-placement {

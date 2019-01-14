@@ -61,7 +61,7 @@ export default {
         offset:(this.page-1)*this.limit,
         _k:this.title,
         address:this.address,
-        school:this.shool
+        school:this.school
       }).then(res => {
         this.specials = res
       })

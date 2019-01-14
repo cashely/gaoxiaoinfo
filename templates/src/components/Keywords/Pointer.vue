@@ -146,6 +146,7 @@
   }
 
 </script>
+<<<<<<< Updated upstream
 <style lang="less" scoped>
 .provinces-box {
   display: flex;
@@ -187,3 +188,18 @@
 }
 </style>
 
+=======
+
+<style scoped>
+  /* .pointer-box{
+    display: flex;
+    text-align: left;
+    flex-flow: row wrap;
+  }
+
+  .pointer-box .pointer {
+    flex: 1;
+  } */
+
+</style>
+>>>>>>> Stashed changes
