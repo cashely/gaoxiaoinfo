@@ -36,4 +36,9 @@ module.exports = (app) => {
   .get('/schools/page', routes.school.pageInfo)
   .post('/school', routes.school.add)
   .post('/school/:id', routes.school.update)
+  .get('/advs',routes.adv.list)
+  .get('/adv/:id', routes.adv.add)
+  .post('/adv', routes.adv.add)
+  .post('/adv/:id', routes.adv.update)
+  .delete('/adv/:id', routes.adv.delete)
 }

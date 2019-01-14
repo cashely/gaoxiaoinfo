@@ -12,7 +12,8 @@ import CategoryIndex from '@/components/Categorys/Index'
 import CategoryDetail from '@/components/Categorys/Detail'
 import SchoolsIndex from '@/components/Schools/Index'
 import SpecialsIndex from '@/components/Specials/Index'
-import SpecialsDetail from '@/components/Specials/Detail' 
+import SpecialsDetail from '@/components/Specials/Detail'
+import AdvIndex from '@/components/Advs/Index'
 Vue.use(Router)
 
 export default new Router({
@@ -54,6 +55,9 @@ export default new Router({
       }, {
         path: 'special/:id',
         component: SpecialsDetail
+      }, {
+        path: 'advs',
+        component: AdvIndex
       }]
     }
   ]

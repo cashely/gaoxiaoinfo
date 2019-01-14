@@ -50,6 +50,15 @@
           <el-menu-item index="/index/specials"><i class="el-icon-more"></i><span>专题列表</span></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
+      <el-submenu index="6">
+        <template slot="title">
+          <i class="el-icon-menu"></i>
+          <b>广告位管理</b>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="/index/advs"><i class="el-icon-more"></i><span>广告列表</span></el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
     </el-menu>
   </nav>
 </template>

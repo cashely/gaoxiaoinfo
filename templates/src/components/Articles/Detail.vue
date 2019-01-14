@@ -13,10 +13,14 @@
             <el-form-item label="标题">
               <el-input v-model="fields.title" class="title"></el-input>
             </el-form-item>
-            <el-form-item label="自定义属性" class="placement">
-              <el-checkbox v-model="fields.checked">置顶</el-checkbox>
-              <el-input type="number" v-model="fields.checked" class="roof-placement"></el-input>
-              <el-checkbox v-model="checked">专题</el-checkbox>
+            <el-form-item label="自定义属性">
+              <el-radio-group v-model="attribute">
+                <el-radio :label="0">专题</el-radio>
+                <el-radio :label="1">置顶</el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item v-if="attribute === 1">
+              <el-input type="number"></el-input>
             </el-form-item>
             <el-form-item label="发布时间">
               <el-date-picker v-model="fields.publishDate" type="datetime" placeholder="选择日期时间" class="dateTime"></el-date-picker>
@@ -103,11 +107,10 @@
           peoples: "",
           registerType: "",
           courseType: "",
-          views: "",
-          checked: false,
-          number: "",
-          textarea: ''
+          views: ""
         },
+        attribute: 1,
+        textarea: '',
         editorOptions: {},
         pid: this.$route.params.id
       };
@@ -152,7 +155,7 @@
     overflow-y: scroll;
   }
 
-  .right-content{
+  .right-content {
     display: flex;
     flex-direction: column;
   }
@@ -173,13 +176,8 @@
     flex-direction: column
   }
 
-  .placement {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .placement .el-form-item__label {
-    text-align: left;
+  .el-form-item--small .el-form-item__label {
+    width: 100%;
   }
 
   .placement .roof-placement {
