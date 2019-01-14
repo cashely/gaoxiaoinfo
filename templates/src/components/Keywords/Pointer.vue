@@ -146,49 +146,6 @@
   }
 
 </script>
-<<<<<<< Updated upstream
-<style lang="less" scoped>
-.provinces-box {
-  display: flex;
-  flex-direction: column;
-  .provinces-area {
-    flex: 1;
-    overflow: auto;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -5px;
-  }
-  .province-card {
-    text-align: center;
-    border: 1px solid #d9d9d9;
-    border-radius: 3px;
-    min-width: 100px;
-    margin: 5px;
-    h3 {
-      border-bottom: 1px solid #d9d9d9;
-      background-color:#f1f1f1; 
-      font-size: 14px;
-      font-weight: normal;
-      padding: 10px 10px;
-      line-height: 1;
-      margin: 0;
-    }
-    .province-card--body {
-      padding: 5px 10px;
-    }
-  }
-  .provinces-unknow {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -10px;
-    padding: 5px 0;
-    margin-top: 20px;
-    border-top: 1px solid #d9d9d9;
-  }
-}
-</style>
-
-=======
 
 <style scoped>
   /* .pointer-box{
@@ -202,4 +159,3 @@
   } */
 
 </style>
->>>>>>> Stashed changes

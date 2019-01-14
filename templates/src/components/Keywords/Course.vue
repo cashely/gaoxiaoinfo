@@ -11,31 +11,7 @@
       </el-form>
     </header>
     <div class="sub-container-box">
-<<<<<<< Updated upstream
-      <el-container style="height: 100%">
-        <div class="drag-left">
-          <div class="el-card box-card is-always-shadow" @drop.prevent="dropAction($event, course._id)" @dragover.prevent="dragOverCardAction" @dragleave.prevent="dragEndCardAction" v-for="course in coursesP" :key="course._id">
-            <div class="el-card__header">
-              <div class="clearfix">
-                <span>{{course.title}}</span>
-              </div>
-            </div>
-            <div class="el-card__body">
-                <button class="drag-button block" draggable="true" @dragstart="dragstartAction($event, c._id)" v-for="c in course.children" :key="c._id">{{c.title}}</button>
-            </div>
-          </div>
-        </div>
-        <el-container>
-          <el-main>
-            <div class="tag-box" @drop.prevent="deleteParentIdAction($event)"  @dragover.prevent="()=> {}">
-              <button class="drag-button tag" size="small" draggable="true" @dragstart="dragstartAction($event, course._id)" @click.stop="openCourseDetail(course._id)" v-for="course in coursesUn" :key="course._id">{{course.title}}</button>
-            </div> 
-          </el-main>
-        </el-container>
-      </el-container>
-=======
       <el-button size="small" v-for="course in courses" :key="course._id">{{course.title}}</el-button>
->>>>>>> Stashed changes
     </div>
     <el-dialog :visible.sync="addDialog">
       <el-form size="small" label-width="80px">
