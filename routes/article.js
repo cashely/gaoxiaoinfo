@@ -37,7 +37,7 @@ module.exports = {
     if(q.school) {
       conditions.school = new RegExp(q.school)
     }
-    models.article.find().where(conditions).populate('parentId').limit(limit).skip(skip).then(pages => {
+    models.article.find().where(conditions).populate('parentId').sort({publishDate: 1}).limit(limit).skip(skip).then(pages => {
       response(200, pages, res)
     }).catch(err=>{
       response(500, err, res)

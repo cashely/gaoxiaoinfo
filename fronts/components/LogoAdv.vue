@@ -29,7 +29,10 @@
         box-sizing: border-box;
         box-shadow: 0 0 1px 0px #d1d1d1;
         display: block;
+        position: relative;
+        transition: all .5s;
         &:hover {
+          z-index: 2;
           box-shadow: 0 0 20px 2px #d9d9d9;
         }
         img {

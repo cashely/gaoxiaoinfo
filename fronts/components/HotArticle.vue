@@ -3,7 +3,7 @@
     <h3>{{title}} <a href="#" class="more">更多></a></h3>
     <ul>
       <li v-for="i in 20" :key="i">
-        <a href="#">热门招聘信息信息{{i}}<span>2019-01-01</span></a>
+        <a href="#"><em>[广州]</em>热门招聘信息信息{{i}}<span>2019-01-01</span></a>
       </li>
     </ul>
   </div>
@@ -12,7 +12,7 @@
 export default {
   props: {
     width: {
-      default: '300px'
+      default: '394px'
     },
     title: {
       default: '热门信息'
@@ -41,7 +41,7 @@ export default {
     padding: 0 10px;
   }
   li {
-    font-size: 12px;
+    font-size: 14px;
     list-style: none;
     a {
       color: #333;
@@ -61,6 +61,11 @@ export default {
       > span {
         float: right;
         color: #666;
+      }
+      > em {
+        color: red;
+        margin-right: 5px;
+        font-style: normal;
       }
     }
   }
