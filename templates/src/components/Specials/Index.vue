@@ -17,7 +17,7 @@
       </el-form>
     </header>
     <div class="sub-container-box">
-      <el-table border size="small" stripe style="width: 100%" :data="specials">
+      <el-table border size="small" stripe style="width: 100%" :data="specials"  @row-click="routerDetailAction">
         <el-table-column prop="school" label="学校" width="300"></el-table-column>
         <el-table-column prop="title" label="标题">
           <template slot-scope="scope">
@@ -82,6 +82,11 @@ export default {
     currentChangeAction(page) {
       this.page = page;
       this.getSpecialsAction()
+    },
+    routerDetailAction(row) {
+      this.$router.push({
+        path: `/index/special/${row._id}`
+      })
     }
   },
   created() {

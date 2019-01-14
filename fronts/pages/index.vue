@@ -25,11 +25,13 @@
     </header>
     <Nav></Nav>
     <BannerNav></BannerNav>
+    <ProvinceBar></ProvinceBar>
     <BigAdv></BigAdv>
     <LogoAdv></LogoAdv>
     <div class="index-articles">
-      <HotArticle></HotArticle>
-      <HotArticle></HotArticle>
+      <HotArticle class="float-left"></HotArticle>
+      <HotArticle  class="float-left margin-left-9" title="高校招聘"></HotArticle>
+      <HotArticle  class="float-left margin-left-9" title="幼儿园招聘"></HotArticle>
     </div>
   </div>
 </template>
@@ -42,6 +44,8 @@ import BannerNav from '~/components/BannerNav.vue'
 import BigAdv from '~/components/BigAdv.vue'
 import LogoAdv from '~/components/LogoAdv.vue'
 import HotArticle from '~/components/HotArticle.vue'
+import Footer from '~/components/Footer.vue'
+import ProvinceBar from '~/components/ProvinceBar.vue'
 
 export default {
   components: {
@@ -50,7 +54,9 @@ export default {
     BannerNav,
     BigAdv,
     LogoAdv,
-    HotArticle
+    HotArticle,
+    Footer,
+    ProvinceBar
   },
   data() {
     return {
@@ -102,5 +108,12 @@ export default {
 }
 .index-articles {
   margin-top: 20px;
+  overflow: hidden;
+  .float-left {
+    float: left;
+    &.margin-left-9 {
+      margin-left: 9px;
+    }
+  }
 }
 </style>

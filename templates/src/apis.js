@@ -11,6 +11,11 @@ const $ = {
   },
   post: (url, params) => {
     return axios.post(url, params)
+  },
+  delete: (url, params) => {
+    return axios.delete(url, {
+      params: params
+    })
   }
 }
 
@@ -94,4 +99,30 @@ export function updateSchoolById(id, params) {
 
 export function addSchool(params) {
   return $.post('/school', params)
+}
+
+//获取服务端所有上传图片
+export function getImagesFromServer() {
+  return $.get('/upload/images').then(res => res.data)
+}
+
+//可以根据type类型来获取广告
+export function getAdvsByType(params) {
+  return $.get('/advs', params).then(res => res.data)
+}
+//根据id获取广告详情
+export function getAdvById(id) {
+  return $.get(`/adv/${id}`).then(res => res.data)
+}
+//新增一条广告
+export function addAdv(params) {
+  return $.post('/adv', params).then(res => res.data)
+}
+//更新一条广告
+export function updateAdvById(id, params) {
+  return $.post(`/adv/${id}`, params).then(res => res.data)
+}
+//根据id删除广告
+export function deleteAdvById(id) {
+  return $.delete(`/adv/id`).then(res => res.data)
 }
