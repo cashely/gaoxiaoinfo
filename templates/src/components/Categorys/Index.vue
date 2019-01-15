@@ -18,7 +18,7 @@
               <el-table-column label="别名" prop="nick"></el-table-column>
               <el-table-column label="操作" width="200" align="center">
                 <template slot-scope="scope">
-                  <el-button type="primary" size="mini">编辑</el-button>
+                  <el-button type="primary" size="mini" @click="routerDetailAction(scope.row._id)">编辑</el-button>
                   <el-button type="danger" size="mini">删除</el-button>
                 </template>
               </el-table-column>
@@ -29,7 +29,7 @@
         <el-table-column label="别名" prop="nick"></el-table-column>
         <el-table-column label="操作" width="200" align="center">
           <template slot-scope="scope">
-            <el-button type="primary" size="mini">编辑</el-button>
+            <el-button type="primary" size="mini" @click="routerDetailAction(scope.row._id)">编辑</el-button>
             <el-button type="danger" size="mini">删除</el-button>
           </template>
         </el-table-column>
@@ -49,6 +49,11 @@ export default {
     getNavsAction() {
       getNavs().then(navs => {
         this.navs = navs
+      })
+    },
+    routerDetailAction(id) {
+      this.$router.push({
+        path: `/index/menu/${id}`
       })
     }
   },

@@ -7,7 +7,12 @@ const {response} = require('../functions/helper.js');
 const _ = require('lodash')
 module.exports = {
   navs: (req, res, next) => {
-    models.category.find().select('title _id parentId')
+    const q = req.query;
+    let conditions = {};
+    if(q.rank) {
+      // conditions.
+    }
+    models.category.find().select('title _id parentId rank')
     .then(navs => {
       navs = _.groupBy(navs, 'parentId');
       navs = navs['null'].map(nav => {
@@ -31,10 +36,21 @@ module.exports = {
     let conditions = {};
     const b = req.body;
     if(b.title) {
-      title: b.title
+      conditions.title = b.title
     }
-    if(b.pid) {
-      parentId: b.pid
+    if(b.url) {
+      conditions.url = url
+    }
+    if(b.parentId) {
+      conditions.parentId = b.pid
+    }
+    if(b.rank) {
+      conditions.rank = +b.rank
+    }
+    if(statu == 0) {
+      conditions.statu = 0
+    }else if(statu == 1) {
+      conditions.statu = 1
     }
     models.category.findByIdAndUpdate(id, conditions)
     .then(result => {

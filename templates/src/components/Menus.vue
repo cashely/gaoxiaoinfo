@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Treeselect v-model="menu" :options="options" @input="menuChange" placeholder="无"></Treeselect>
+    <Treeselect :value="value" :options="options" @input="menuChange" placeholder="无"></Treeselect>
   </div>
 </template>
 <script>
@@ -20,8 +20,7 @@ export default {
   },
   data() {
     return {
-      menus: [],
-      menu: this.value
+      menus: []
     }
   },
   computed: {

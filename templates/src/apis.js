@@ -31,6 +31,13 @@ export function getNavs() {
   return $.get('/navs').then(res => res.data)
 }
 
+export function getNavById(id) {
+  return $.get(`/nav/${id}`).then(res => res.data)
+}
+export function updateNavById(id, params) {
+  return $.post(`/nav/${id}`, params)
+}
+
 export function getCourses() {
   return $.get('/courses').then(res => res.data)
 }

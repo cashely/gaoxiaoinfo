@@ -47,6 +47,9 @@ export default new Router({
         path: 'menu',
         component: CategoryDetail
       }, {
+        path: 'menu/:id',
+        component: CategoryDetail
+      }, {
         path: 'schools',
         component: SchoolsIndex
       }, {
